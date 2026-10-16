@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Venus EMS — World Emergency Medical Services</title>
+<meta name="description" content="Cổng thông tin chính thức của Venus EMS — Trạm Cứu Thương Thành Phố Venus. Giới thiệu, cấp bậc, nội quy, quy trình cứu hộ và tuyển dụng.">
+<meta name="theme-color" content="#ef3346">
+<link rel="icon" type="image/png" href="favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Venus EMS — World Emergency Medical Services">
+<meta property="og:description" content="Cổng thông tin chính thức của Trạm Cứu Thương Thành Phố Venus.">
+<meta property="og:image" content="og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bgfx" id="bgfx"></div>
+<div class="cur" id="cur"></div>
+<div class="cring" id="cring"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></div>
+
+<!-- ================= CỔNG VÀO ================= -->
+<div class="gate" id="gate">
+  <div class="g-in">
+    <div class="g-badge">
+      <svg class="g-scal" id="gScal" viewBox="0 0 500 500"></svg>
+      <span class="g-ring"></span><span class="g-ring r2"></span>
+      <img src="logo.webp" alt="Venus EMS">
+      <span class="g-float f1"><svg viewBox="0 0 24 24" fill="currentColor" stroke="#3b0d18" stroke-width="1.6"><path d="M12 21s-8-4.9-8-10.6C4 7.5 6.2 5.5 8.7 5.5c1.5 0 2.7.8 3.3 1.9.6-1.1 1.8-1.9 3.3-1.9 2.5 0 4.7 2 4.7 4.9C20 16.1 12 21 12 21z"/></svg></span>
+      <span class="g-float f2"><svg viewBox="0 0 24 24" fill="currentColor" stroke="#3b0d18" stroke-width="1.6"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg></span>
+      <span class="g-float f3"><svg viewBox="0 0 24 24" fill="currentColor" stroke="#3b0d18" stroke-width="1.6"><path d="M12 2l2.6 6.4L21 9l-5 4.4L17.4 20 12 16.6 6.6 20 8 13.4 3 9l6.4-.6z"/></svg></span>
+    </div>
+    <div class="g-k">Cổng thông tin chính thức</div>
+    <h1 class="g-t">Venus <em>EMS</em></h1>
+    <div class="g-s">Trạm Cứu Thương Thành Phố Venus</div>
+    <svg class="g-ecg" viewBox="0 0 320 40"><path d="M0 20H110L120 20L128 6L138 34L148 2L158 30L164 20H320"/></svg>
+    <div class="g-cards" id="gCards"></div>
+    <button class="btn g-go" id="gGo" type="button"><span class="lbl">Vào trạm cứu thương</span><span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></button>
+    <div class="g-hint">Nhấn <kbd>Enter</kbd> để vào</div>
+  </div>
+  <div class="g-foot"><span>Est. 2026</span><span class="c"><i></i>Trạm cứu thương · Sẵn sàng</span><span>Venus World</span></div>
+</div>
+
+<!-- ================= NAV ================= -->
+<nav class="nav" id="nav">
+  <div class="awning" id="awning"></div>
+  <div class="nav-in">
+    <div class="nside l" id="navL"></div>
+    <a class="emblem" data-to="0" data-mag><div class="ring" id="emRing"></div><img src="logo.webp" alt="Venus EMS"></a>
+    <div class="nside r" id="navR"></div>
+  </div>
+  <button class="sbtn" id="sOpen" type="button" data-mag><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M12.8 12.8L17 17"/></svg><span>Tra cứu</span><kbd>Ctrl K</kbd></button>
+  <button class="mbtn" id="mOpen" type="button" aria-label="Mở menu"><i></i><i></i><i></i></button>
+  <div class="prog"><i id="prog"></i></div>
+</nav>
+
+<div class="msheet" id="msheet"><div class="card ms-in" id="msList"></div></div>
+
+<!-- ================= DECK ================= -->
+<main class="deck" id="deck">
+
+<!-- 01 TRANG CHỦ -->
+<section class="slide" data-t="Trang chủ" data-id="trangchu">
+  <div class="wrap">
+    <div class="hero">
+      <div>
+        <span class="tag rv"><i><svg viewBox="0 0 16 16" fill="currentColor"><path d="M6 1h4v5h5v4h-5v5H6v-5H1V6h5z"/></svg></i>World Emergency Medical Services</span>
+        <h1 class="rv chars" id="heroTitle">Venus<small>EMS</small></h1>
+        <p class="lead rv" id="heroLead"></p>
+        <div class="chips rv" id="heroChips"></div>
+        <div class="cta rv">
+          <a class="btn" data-to="tuyendung" data-mag><span class="lbl">Gia nhập EMS</span><span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
+          <a class="btn white" data-to="noiquy" data-mag><span class="lbl">Xem nội quy</span></a>
+        </div>
+        <div class="status rv"><i></i>Trạm cứu thương <b>đang trực</b> · Cổng thông tin chính thức</div>
+      </div>
+      <div class="badge rv" id="badge">
+        <div class="lay" data-depth="-14"><div class="scal" id="scallop"></div></div>
+        <span class="pulse"></span><span class="pulse"></span>
+        <div class="lay" data-depth="22"><img class="logo" src="logo.webp" alt="Venus EMS"></div>
+        <div class="lay" data-depth="40">
+          <div class="float" style="width:46px;height:46px;left:2%;top:10%;animation-delay:-1s"><svg viewBox="0 0 24 24" fill="currentColor" stroke="#3b0d18" stroke-width="1.6"><path d="M12 21s-8-4.9-8-10.6C4 7.5 6.2 5.5 8.7 5.5c1.5 0 2.7.8 3.3 1.9.6-1.1 1.8-1.9 3.3-1.9 2.5 0 4.7 2 4.7 4.9C20 16.1 12 21 12 21z"/></svg></div>
+          <div class="float" style="width:40px;height:40px;right:4%;top:6%;color:#fff;animation-delay:-2.5s"><svg viewBox="0 0 24 24" fill="currentColor" stroke="#3b0d18" stroke-width="1.6"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg></div>
+          <div class="live">ĐANG TRỰC 24/7</div>
+          <div class="sticker"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15V8h10v7M13 10h4l3 3v2h-7"/><circle cx="7" cy="16.5" r="2"/><circle cx="16.5" cy="16.5" r="2"/></svg></i><div>Trạm Cứu Thương<small>Thành phố Venus</small></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="strip" id="strip"></div>
+    <div class="ticker rv"><div class="tr" id="ticker"></div></div>
+  </div>
+</section>
+
+<!-- 02 GIỚI THIỆU -->
+<section class="slide" data-t="Giới thiệu" data-id="gioithieu">
+  <div class="wmk">ABOUT</div>
+  <div class="wrap">
+    <div class="phead">
+      <div>
+        <div class="pnum rv">02</div>
+        <h2 class="rv split">Luôn có mặt khi <span class="hl">bạn cần</span></h2>
+      </div>
+      <div class="side rv"><p class="lead">Ba nhiệm vụ cốt lõi của lực lượng y tế khẩn cấp Venus World.</p><div class="meta"><span class="pill"><b>3</b> nhiệm vụ</span><span class="pill"><b>24/7</b> trực cứu hộ</span></div></div>
+    </div>
+    <div class="bento" id="bento"></div>
+  </div>
+</section>
+
+<!-- 03 CẤP BẬC -->
+<section class="slide" data-t="Cấp bậc" data-id="capbac">
+  <div class="wmk">RANKS</div>
+  <div class="wrap">
+    <div class="phead">
+      <div>
+        <div class="pnum rv">03</div>
+        <h2 class="rv split">Leo cấp <span class="hl">từng bước</span></h2>
+      </div>
+      <div class="side rv"><p class="lead">Thăng cấp dựa trên thời gian trực, số ca cứu hộ và đánh giá của Trưởng khoa.</p><div class="meta" id="rkMeta"></div></div>
+    </div>
+    <div class="rk">
+      <div class="card rk-stage rv" id="rkStage"></div>
+      <div class="rk-list rv" id="rkList"></div>
+    </div>
+    <div class="sec">
+      <div class="eyebrow rv"><b>3</b>Tiêu chí thăng cấp</div>
+      <div class="crit" id="crit"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 NỘI QUY -->
+<section class="slide" data-t="Nội quy" data-id="noiquy">
+  <div class="wmk">RULES</div>
+  <div class="wrap">
+    <div class="phead">
+      <div>
+        <div class="pnum rv">04</div>
+        <h2 class="rv split">Nội quy <span class="hl">ngành EMS</span></h2>
+      </div>
+      <div class="side rv"><p class="lead">Mọi nhân viên EMS cần nắm rõ để làm việc an toàn và chuyên nghiệp.</p><div class="meta" id="lawMeta"></div></div>
+    </div>
+    <div class="lib">
+      <aside class="card lib-nav rv" id="libNav"></aside>
+      <div class="reader rv" id="reader"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 CỨU HỘ -->
+<section class="slide" data-t="Cứu hộ" data-id="cuuho">
+  <div class="wmk">RESCUE</div>
+  <div class="wrap">
+    <div class="phead">
+      <div>
+        <div class="pnum rv">05</div>
+        <h2 class="rv split">Quy trình <span class="hl">một ca cứu hộ</span></h2>
+      </div>
+      <div class="side rv"><p class="lead">Bốn bước cơ bản mỗi khi nhận được cuộc gọi khẩn cấp.</p><div class="meta"><span class="pill"><b>4</b> bước</span><span class="pill"><b>3</b> mức phân loại</span></div></div>
+    </div>
+    <div class="tl rv" id="tl"></div>
+    <div class="sec">
+      <div class="eyebrow rv"><b>3</b>Phân loại bệnh nhân</div>
+      <div class="triage" id="triage"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 TUYỂN DỤNG + FOOTER -->
+<section class="slide" data-t="Tuyển dụng" data-id="tuyendung">
+  <div class="wmk">JOIN US</div>
+  <div class="wrap">
+    <div class="card poster rv">
+      <div>
+        <div class="pnum">06</div>
+        <h2 class="rv split">Gia nhập <span class="hl">Venus EMS</span></h2>
+        <p class="lead" id="joinText"></p>
+        <div class="cta"><a class="btn discord" target="_blank" rel="noopener" data-mag><span class="lbl">Discord Venus EMS</span><span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h8v8M13 3L3 13"/></svg></span></a></div>
+      </div>
+      <div class="pic"><img src="logo.webp" alt="">
+        <div class="stamp2"><svg viewBox="0 0 100 100"><defs><path id="circ" d="M50 50m-40 0a40 40 0 1 1 80 0a40 40 0 1 1-80 0"/></defs><text><textPath href="#circ">VENUS EMS · TUYỂN DỤNG · VENUS EMS ·</textPath></text></svg>Gia<br>nhập</div>
+      </div>
+    </div>
+    <div class="sec">
+      <div class="eyebrow rv"><b>3</b>Lộ trình gia nhập</div>
+      <div class="path" id="path"></div>
+    </div>
+  </div>
+  <footer class="foot">
+    <div class="scal-top"></div>
+    <div class="wrap">
+      <div class="fgrid">
+        <div class="fbrand"><img src="logo.webp" alt=""><div><h4>Venus EMS</h4><p>Trạm Cứu Thương Thành Phố Venus</p></div></div>
+        <div><h5>Điều hướng</h5><div class="flinks" id="flinks"></div></div>
+        <div class="fcta"><h5>Cộng đồng</h5><p>Theo dõi Discord để nhận thông báo tuyển dụng.</p><a class="btn white discord" target="_blank" rel="noopener" data-mag><span class="lbl">Discord Venus EMS</span><span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h8v8M13 3L3 13"/></svg></span></a></div>
+      </div>
+    </div>
+    <div class="fbig" aria-hidden="true"><span>Venus EMS</span><span>Venus EMS</span><span>Venus EMS</span><span>Venus EMS</span></div>
+    <div class="wrap"><div class="fbot"><span>© 2026 Venus EMS · Venus World</span><span>Nhanh chóng · Tận tâm · An toàn</span></div></div>
+  </footer>
+</section>
+
+</main>
+
+<!-- ================= ĐIỀU KHIỂN DECK ================= -->
+<div class="dots" id="dots"></div>
+<div class="deckbar">
+  <div class="cnt" id="dCnt"></div>
+  <div class="hint" id="dHint"><span>Cuộn để sang mục tiếp theo</span><i class="mouse"><b></b></i></div>
+</div>
+
+<div class="wipe" id="wipe"><i></i><i></i><i></i><div class="stamp"><img src="logo.webp" alt=""><span id="wipeTxt"></span><small id="wipeNo"></small></div></div>
+
+<!-- ================= TRA CỨU ================= -->
+<div class="sov" id="sov">
+  <div class="card sbox">
+    <div class="sin"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M12.8 12.8L17 17"/></svg><input id="sQ" type="text" placeholder="Nhập từ khoá: on duty, đồng phục, sa thải…" autocomplete="off"><kbd id="sClose">Esc</kbd></div>
+    <div class="smeta" id="sMeta">Gõ không dấu cũng tìm được.</div>
+    <div class="sres" id="sRes"></div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
